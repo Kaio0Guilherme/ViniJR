@@ -1,0 +1,147 @@
+body {
+    font-family:'roboto';
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background-color: #c46d5a;
+    color: white;
+    padding: 20px;
+    margin: 10;
+}
+
+#logo {
+    display: block;
+    margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona um espaçamento inferior */
+    padding: 10px;
+}
+
+h3 {
+    background-color: #f06464;
+    color: white;
+    padding: 20px;
+    margin: 10;
+}
+
+h4 {
+    background-color: #f06464;
+    color: white;
+    padding: 20px;
+    margin: 10;
+}
+
+h2{
+    color: white;
+    padding: 20px;
+    margin: 1px;
+}
+
+.map-container {
+    position: relative;
+    margin: 20px auto;
+    width: 1000px;
+    height: auto;
+}
+
+.map-image {
+    width: 100%;
+    height: auto;
+    border-image: auto;
+}
+
+.pin {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.info-box {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 600px; /* Define a largura */
+    height: 600px; /* Define a altura */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    overflow-y: auto; /* Adiciona barra de rolagem caso o conteúdo exceda a altura */
+}
+
+
+.info-box button {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.info-box button:hover {
+    background-color: #c0392b;
+}
+
+a{
+    color: #070707;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px;
+    
+}
+#btn btn-link{
+    background-color: #d64c3c;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px; 
+    text-transform: uppercase;
+    text-decoration-line: none
+    
+     
+}
+#btn btn-link:hover btn-link:visited btn-link:active{
+    text-decoration: none;
+    list-style: none;
+}
+
+label{
+    padding: 5px;
+    margin: 10px;
+}
+
+#Isoxaflutole:hover{
+    background-color: #d64c3c;
+}
+
+.herbicide-image-container {
+    margin-top: 10px;
+}
+
+.herbicide-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cultivar-image-container {
+    margin-top: 10px;
+}
+
+.cultivar-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}

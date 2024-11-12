@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Mapa de Cultivo de Cacau</title>
+</head>
+<body>
+
+    <script>
+        function showGlebas(fazendaId) {
+            document.getElementById('fazendasContainer').style.display = 'none'; // Oculta as fazendas
+            var contentContainer = document.getElementById('contentContainer');
+            contentContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+            var glebas = {
+                'Fazenda1': [
+                    { nome: 'Gleba1' },
+                    { nome: 'Gleba2' }
+                ],
+                'Fazenda2': [
+                    { nome: 'Gleba3' },
+                    { nome: 'Gleba4' }
+                ]
+            };
+
+            // Botão de voltar para fazendas
+            var backButton = document.createElement('button');
+            backButton.className = 'btn btn-secondary btn-block mb-3';
+            backButton.textContent = 'Voltar para Fazendas';
+            backButton.onclick = function() { showFazendas(); };
+            contentContainer.appendChild(backButton);
+
+            var selectedGlebas = glebas[fazendaId];
+            selectedGlebas.forEach(gleba => {
+                var button = document.createElement('button');
+                button.className = 'btn btn-primary btn-block';
+                button.textContent = `Selecionar ${gleba.nome}`;
+                button.onclick = function() { showQuadras(gleba.nome); };
+                contentContainer.appendChild(button);
+            });
+        }
+
+        function showFazendas() {
+            document.getElementById('fazendasContainer').style.display = 'block'; // Mostra as fazendas
+            document.getElementById('contentContainer').innerHTML = ''; // Limpa o conteúdo de glebas ou quadras
+        }
+
+        function showQuadras(glebaNome) {
+            var contentContainer = document.getElementById('contentContainer');
+            contentContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+            var quadras = {
+                'Gleba1': [
+                    { nome: 'Quadra 1', imagem: '/imagens/Backgroud Mlibanio.jpg', info: 'Informações sobre a Quadra 1.' },
+                    { nome: 'Quadra 2', imagem: 'path/to/quadra2.jpg', info: 'Informações sobre a Quadra 2.' }
+                ],
+                'Gleba2': [
+                    { nome: 'Quadra 1', imagem: 'path/to/quadra3.jpg', info: 'Informações sobre a Quadra 3.' },
+                    { nome: 'Quadra 2', imagem: 'path/to/quadra4.jpg', info: 'Informações sobre a Quadra 4.' }
+                ]
+            };
+
+            // Botão de voltar para glebas
+            var backButton = document.createElement('button');
+            backButton.className = 'btn btn-secondary btn-block mb-3';
+            backButton.textContent = 'Voltar para Glebas';
+            backButton.onclick = function() { showGlebas('Fazenda1'); };
+            contentContainer.appendChild(backButton);
+
+            var selectedQuadras = quadras[glebaNome];
+            selectedQuadras.forEach(quadra => {
+                var button = document.createElement('button');
+                button.className = 'btn btn-success btn-block';
+                button.textContent = `Selecionar ${quadra.nome}`;
+                button.onclick = function() { showQuadraInfo(quadra); };
+                contentContainer.appendChild(button);
+            });
+        }
+
+        function showQuadraInfo(quadra) {
+            var contentContainer = document.getElementById('contentContainer');
+            contentContainer.innerHTML = ''; // Limpa o conteúdo anterior
+
+            // Botão de voltar para quadras
+            var backButton = document.createElement('button');
+            backButton.className = 'btn btn-secondary btn-block mb-3';
+            backButton.textContent = 'Voltar para Quadras';
+            backButton.onclick = function() { showQuadras('Gleba1'); };
+            contentContainer.appendChild(backButton);
+
+            // Exibe a imagem da quadra
+            var img = document.createElement('img');
+            img.src = quadra.imagem;
+            img.className = 'img-fluid mb-4';
+            contentContainer.appendChild(img);
+
+            // Exibe as informações da quadra
+            var infoBox = document.createElement('div');
+            infoBox.className = 'alert alert-info';
+            infoBox.textContent = quadra.info;
+            contentContainer.appendChild(infoBox);
+        }
+    </script>
+
+    <div class="container">
+        <img id="logo" src="/imagens/logoM.jpg" width="300px" alt="">
+        <h1 class="my-4 text-center">Mapa de Cultivo de Cacau</h1>
+        <div id="fazendasContainer" class="text-center mb-3">
+            <label class="my-4 text-center" for="fazenda">Selecione a Fazenda:</label>
+            <div class="btn-group" role="group" aria-label="Seleção de Fazenda">
+                <button class="btn btn-danger" onclick="showGlebas('Fazenda1')">Fazenda 1</button>
+                <button class="btn btn-danger" onclick="showGlebas('Fazenda2')">Fazenda 2</button>
+            </div>
+        </div>
+
+        <!-- Contêiner para exibir o conteúdo (glebas, quadras, infobox) -->
+        <div id="contentContainer" class="mt-4">
+            
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Kaio Guilherme, Gustavo Ribeiro. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
